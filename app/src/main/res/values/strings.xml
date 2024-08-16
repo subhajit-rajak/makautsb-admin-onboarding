@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MSB Contributer</string>
+    <string name="choose_branch">Choose Branch</string>
+    <string name="upload_pdf">Upload PDF</string>
+    <string name="choose_file">Choose File</string>
+    <string name="subject_name">Subject name</string>
+    <string name="semester">Semester</string>
+</resources>
