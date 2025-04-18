@@ -5,4 +5,6 @@
     <string name="choose_file">Choose File</string>
     <string name="subject_name">Subject name</string>
     <string name="semester">Semester</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

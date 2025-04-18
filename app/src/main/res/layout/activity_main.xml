@@ -5,92 +5,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editTextBookName"
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_home"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
-        android:background="@drawable/textboxshape"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/subject_name"
-        android:paddingStart="18dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSemester"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:ignore="All" />
+        app:navGraph="@navigation/mobile_navigation"
+        tools:ignore="FragmentTagUsage" />
 
-    <EditText
-        android:id="@+id/editTextSemester"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/textboxshape"
-        android:hint="@string/semester"
-        android:paddingStart="18dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/editTextBranch"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBookName"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/editTextBookName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBookName"
-        tools:ignore="All" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editTextBranch"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/black"
-        app:boxBackgroundColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/buttonChooseFile"
-        app:layout_constraintEnd_toEndOf="@+id/editTextSemester"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/editTextSemester"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSemester">
-
-        <AutoCompleteTextView
-            android:id="@+id/listOfBranches"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dropDownHeight="200dp"
-            android:inputType="none"
-            android:text="@string/choose_branch"
-            android:textColorLink="@color/blue"
-            app:dropDownBackgroundTint="@color/white"
-            app:simpleItemSelectedColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonChooseFile"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/choose_file"
-        app:layout_constraintBottom_toTopOf="@+id/buttonUpload"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBranch"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/editTextBranch"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBranch" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonUpload"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/upload_pdf"
+        app:itemPaddingTop="24dp"
+        app:itemPaddingBottom="16dp"
+        android:background="@color/navBg"
+        app:itemActiveIndicatorStyle="@style/ShapeAppearance.Material3.Corner.None"
+        app:itemIconTint="@color/bottom_nav"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemTextColor="@color/bottom_nav"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/buttonChooseFile"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/buttonChooseFile"
-        app:layout_constraintTop_toBottomOf="@+id/buttonChooseFile" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

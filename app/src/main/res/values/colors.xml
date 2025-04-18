@@ -2,5 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="darker_grey">#AA393939</color>
+    <color name="grey">#AAACACAC</color>
+    <color name="background">#f6f7f9</color>
+    <color name="onBackground">#1F1F1F</color>
+    <color name="navBg">#FFFFFF</color>
+    <color name="onNav">#1F1F1F</color>
     <color name="blue">#0E6FFF</color>
+
+    <color name="background_upfront">#ffffff</color>
+    <color name="background_pdf">#FFFFFF</color>
+    <color name="background_settings">#ffffff</color>
+    <color name="background_top_bar">#1a1a1a</color>
+    <color name="background_lighter">#e6e6e6</color>
+    <color name="highlight">#5ca653</color>
+    <color name="highlight_darker">#3A761D</color>
+    <color name="text">#1a1a1a</color>
+    <color name="logout_bg">#FFDADA</color>
+    <color name="logout_stroke">#E8A6A6</color>
+    <color name="dark_white">#FDFDFD</color>
+    <color name="swipe_button_gray">#5F5F5F</color>
 </resources>

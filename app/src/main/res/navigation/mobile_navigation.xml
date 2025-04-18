@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/organizers">
+
+    <fragment
+        android:id="@+id/notes"
+        android:name="com.subhajitrajak.msbcontributer.screens.notes.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/organizers"
+        android:name="com.subhajitrajak.msbcontributer.screens.organizers.OrganizersFragment"
+        android:label="fragment_organizers"
+        tools:layout="@layout/fragment_organizers" />
+    <fragment
+        android:id="@+id/videos"
+        android:name="com.subhajitrajak.msbcontributer.screens.videos.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
+</navigation>
