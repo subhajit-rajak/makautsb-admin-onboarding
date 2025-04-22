@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  # Makaut Study Buddy Contributer
+  # makautSB Admin OnBoarding
 </div>
 
 > ⚠️ The app is still in development. If you have any issues with the app or missing organizer pdfs then create a new issue in the repo. I will reply within 24 hours.
