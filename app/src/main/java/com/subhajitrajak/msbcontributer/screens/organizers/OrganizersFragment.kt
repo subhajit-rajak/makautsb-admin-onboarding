@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import com.subhajitrajak.msbcontributer.databinding.FragmentOrganizersBinding
 import com.subhajitrajak.msbcontributer.models.BooksModel
 import com.subhajitrajak.msbcontributer.utils.Constants.ACCEPTED
@@ -24,6 +24,7 @@ import com.subhajitrajak.msbcontributer.utils.Constants.PENDING
 import com.subhajitrajak.msbcontributer.utils.Constants.REJECTED
 import com.subhajitrajak.msbcontributer.utils.Constants.UPLOAD_REQUESTS
 import com.subhajitrajak.msbcontributer.utils.getBranchCode
+import com.subhajitrajak.msbcontributer.utils.showToast
 
 class OrganizersFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
@@ -87,12 +88,23 @@ class OrganizersFragment : Fragment() {
     private fun onReject(book: BooksModel) {
         val bookRef = database.getReference(UPLOAD_REQUESTS).child(ORGANIZERS_DATA).child(book.id)
 
+        val bookName = book.bookName
+
         bookRef.child("status").setValue(REJECTED)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Book rejected", Toast.LENGTH_SHORT).show()
+                val pdfFileName = "$bookName.pdf"
+                val fileRef = FirebaseStorage.getInstance().reference.child(pdfFileName)
+                fileRef.delete()
+                    .addOnSuccessListener {
+                        showToast(requireContext(), "Storage: Delete successful")
+                    }
+                    .addOnFailureListener { exception ->
+                        showToast(requireContext(), "Error: ${exception.message}")
+                    }
+                showToast(requireContext(), "Book rejected")
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+                showToast(requireContext(), "Error: ${it.message}")
             }
     }
 
@@ -125,11 +137,10 @@ class OrganizersFragment : Fragment() {
 
             branchRef.child(branchCode).setValue(branchData)
                 .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Upload successful", Toast.LENGTH_SHORT).show()
+                    showToast(requireContext(), "Upload successful")
                 }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Failed to upload data", Toast.LENGTH_SHORT)
-                        .show()
+                    showToast(requireContext(), "Failed to upload data")
                 }
         }
 
@@ -138,10 +149,10 @@ class OrganizersFragment : Fragment() {
             database.getReference(UPLOAD_REQUESTS).child(ORGANIZERS_DATA).child(book.id)
         uploadBookRef.child("status").setValue(ACCEPTED)
             .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Book accepted", Toast.LENGTH_SHORT).show()
+                showToast(requireContext(), "Book accepted")
             }
             .addOnFailureListener {
-                Toast.makeText(requireContext(), "Error: ${it.message}", Toast.LENGTH_SHORT).show()
+                showToast(requireContext(), "Error: ${it.message}")
             }
     }
 
