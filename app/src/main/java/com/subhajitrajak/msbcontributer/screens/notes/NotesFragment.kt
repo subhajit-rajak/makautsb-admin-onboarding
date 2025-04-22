@@ -24,7 +24,9 @@ import com.subhajitrajak.msbcontributer.utils.Constants.PENDING
 import com.subhajitrajak.msbcontributer.utils.Constants.REJECTED
 import com.subhajitrajak.msbcontributer.utils.Constants.UPLOAD_REQUESTS
 import com.subhajitrajak.msbcontributer.utils.getBranchCode
+import com.subhajitrajak.msbcontributer.utils.removeWithAnim
 import com.subhajitrajak.msbcontributer.utils.showToast
+import com.subhajitrajak.msbcontributer.utils.showWithAnim
 
 class NotesFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
@@ -58,6 +60,14 @@ class NotesFragment : Fragment() {
                 }
                 if (isAdded) {
                     setupAdapter()
+                }
+
+                if (list.isEmpty()) {
+                    binding.mErrorHolder.showWithAnim()
+                    binding.rvNotes.removeWithAnim()
+                } else {
+                    binding.mErrorHolder.removeWithAnim()
+                    binding.rvNotes.showWithAnim()
                 }
             }
 
