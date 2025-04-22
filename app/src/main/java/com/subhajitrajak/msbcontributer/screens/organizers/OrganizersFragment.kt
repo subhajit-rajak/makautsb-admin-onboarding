@@ -1,5 +1,6 @@
 package com.subhajitrajak.msbcontributer.screens.organizers
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -65,6 +66,7 @@ class OrganizersFragment : Fragment() {
         })
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupAdapter() {
         adapter = OrganizersRequestAdapter(
             requireContext(),

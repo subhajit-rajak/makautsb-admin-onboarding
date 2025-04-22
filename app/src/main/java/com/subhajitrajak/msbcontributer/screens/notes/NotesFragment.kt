@@ -1,5 +1,6 @@
 package com.subhajitrajak.msbcontributer.screens.notes
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -64,6 +65,7 @@ class NotesFragment : Fragment() {
         })
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupAdapter() {
         adapter = NotesRequestAdapter(
             requireContext(),
