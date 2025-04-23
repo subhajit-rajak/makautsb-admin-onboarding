@@ -1,6 +1,6 @@
-![image1](https://github.com/user-attachments/assets/a8fb0103-772b-401a-9eed-c63f7bf419af)
-
 <div align="center">
+
+  <img heigh="200" width="200" src="https://github.com/user-attachments/assets/a6e407d7-2c15-4078-a75e-c67df11a9e7e">
   
   # makautSB Admin OnBoarding
 </div>
