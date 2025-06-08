@@ -1,5 +1,7 @@
 package com.subhajitrajak.msbcontributer.utils
 
+import com.subhajitrajak.msbcontributer.utils.Constants.BOOKS
+import com.subhajitrajak.msbcontributer.utils.Constants.BOOKS_DATA
 import com.subhajitrajak.msbcontributer.utils.Constants.CE
 import com.subhajitrajak.msbcontributer.utils.Constants.CSE
 import com.subhajitrajak.msbcontributer.utils.Constants.ECE
@@ -25,6 +27,7 @@ fun getBranchCode(branch: String): String {
 fun getTypeCode(type: String): String {
     return when(type) {
         NOTES -> NOTES_DATA
+        BOOKS -> BOOKS_DATA
         else -> ORGANIZERS_DATA
     }
 }

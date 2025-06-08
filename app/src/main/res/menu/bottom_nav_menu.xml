@@ -16,4 +16,9 @@
         android:id="@+id/videos"
         android:icon="@drawable/videos"
         android:title="Videos" />
+
+    <item
+        android:id="@+id/books"
+        android:icon="@drawable/books"
+        android:title="Books" />
 </menu>
